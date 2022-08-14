@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+
+<div class="container"><br>
+
+<div class="col-lg-6 m-auto d-block">
+
+<form action="#" onsubmit="return validation()" class="bg-light">
+
+<div class="form-group">
+<label for="source" class="font-weight-bold"> Select your source : </label>
+<input type="text" name="source" class="form-control" id="source" autocomplete="off">
+<span id="sourcename" class="text-danger font-weight-bold"> </span>
+</div>
+
+<div class="form-group">
+<label class="font-weight-bold"> Provide a name for pipeline: </label>
+<input type="text" name="pipeline" class="form-control" id="pipeline" autocomplete="off">
+<span id="pipelinename" class="text-danger font-weight-bold"> </span>
+</div>
+
+<div class="form-group">
+<label class="font-weight-bold"> GCS project name : </label>
+<input type="text" name="project" class="form-control" id="project" autocomplete="off">
+<span id="projectname" class="text-danger font-weight-bold"> </span>
+</div>
+
+<div class="form-group">
+<label class="font-weight-bold"> GCS bucket name : </label>
+<input type="text" name="bucket" class="form-control" id="bucket" autocomplete="off">
+<span id="bucketname" class="text-danger font-weight-bold"> </span>
+</div>
+
+<div class="form-group">
+<label class="font-weight-bold"> Input Cloud Storage File(s) : </label>
+<input type="text" name="file" class="form-control" id="file" autocomplete="off">
+<span id="filename" class="text-danger font-weight-bold"> </span>
+</div>
+
+    <div class="form-group">
+    <label class="font-weight-bold"> GCS credentials :</label>
+    <input type="text" name="credentials" class="form-control" id="credentials" autocomplete="off">
+    <span id="credentialsname" class="text-danger font-weight-bold"> </span>
+    </div>
+
+    <div class="form-group">
+    <label class="font-weight-bold"> Run Every : </label>
+    <input type="text" name="run" class="form-control" id="run" autocomplete="off">
+    <span id="runname" class="text-danger font-weight-bold"> </span>
+    </div>
+
+
+<input type="submit" name="submit" value="Create" class="btn btn-success" autocomplete="off">
+<button onclick = "window.location.reload();" type ="button" class="btn btn-danger">Cancel</button>
+
+
+</form><br><br>
+
+
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+
+
+function validation(){
+
+var source = document.getElementById('source').value;
+var pipeline = document.getElementById('pipeline').value;
+var project = document.getElementById('project').value;
+var bucket = document.getElementById('bucket').value;
+var file = document.getElementById('file').value;
+var credentials = document.getElementById('credentials').value;
+var run = document.getElementById('run').value;
+
+var correct_way = /^[A-Za-z0-9_-]*$/;
+
+//source name
+
+if(source == ""){
+document.getElementById('sourcename').innerHTML =" ** Please fill the source name field";
+return false;
+}
+if((source.length <5)) {
+document.getElementById('sourcename').innerHTML =" ** source name lenght must be > 5";
+return false;
+}
+if(source.match(correct_way))
+ true;
+ else{
+    document.getElementById('sourcename').innerHTML =" ** No special characters allowed ";
+    return false;
+ }
+ 
+
+// pipeline name
+
+if(pipeline == ""){
+document.getElementById('pipelinename').innerHTML =" ** Please fill the pipeline name field";
+return false;
+}
+if((pipeline.length <5)) {
+document.getElementById('pipelinename').innerHTML =" ** pipeline name lenght must be > 5";
+return false;
+}
+if(pipeline.match(correct_way))
+ true;
+ else{
+    document.getElementById('pipelinename').innerHTML =" ** No special characters allowed ";
+    return false;
+ }
+
+//project name
+if(project == ""){
+document.getElementById('projectname').innerHTML =" ** Please fill the project name field";
+return false;
+}
+if((project.length <5)) {
+document.getElementById('projectname').innerHTML =" ** project name lenght must be > 5";
+return false;
+}
+if(project.match(correct_way))
+ true;
+ else{
+    document.getElementById('projectname').innerHTML =" ** No special characters allowed ";
+    return false;
+ }
+
+//bucket name
+if(bucket == ""){
+document.getElementById('bucketname').innerHTML =" ** Please fill the bucket name field";
+return false;
+}
+if((bucket.length <5)) {
+document.getElementById('bucketname').innerHTML =" ** bucket name lenght must be > 5";
+return false;
+if(bucket.match(correct_way))
+ true;
+ else{
+    document.getElementById('bucketname').innerHTML =" ** No special characters allowed ";
+    return false;
+ }
+}
+
+//file name
+if(file == ""){
+document.getElementById('filename').innerHTML =" ** Please fill the file name field";
+return false;
+}
+if((file.length <5)) {
+document.getElementById('filename').innerHTML =" ** file name lenght must be > 5";
+return false;
+if(file.match(correct_way))
+ true;
+ else{
+    document.getElementById('filename').innerHTML =" ** No special characters allowed ";
+    return false;
+ }
+}
+
+//credentials
+if(credentials == ""){
+document.getElementById('credentialsname').innerHTML =" ** Please fill the credentials field";
+return false;
+}
+if((credentials.length <5)) {
+document.getElementById('credentialsname').innerHTML =" ** lenght must be > 5";
+return false;
+}
+if(credentials.match(correct_way))
+ true;
+ else{
+    document.getElementById('credentialsname').innerHTML =" ** No special characters allowed ";
+    return false;
+ }
+
+//run
+if(run == ""){
+document.getElementById('runname').innerHTML =" ** This field is required";
+return false;
+}
+if((run.length <5)) {
+document.getElementById('runname').innerHTML =" ** lenght must be > 5";
+return false;
+}
+if(run.match(correct_way))
+ true;
+ else{
+    document.getElementById('runname').innerHTML =" ** No special characters allowed ";
+    return false;
+ }
+
+
+}
+
+</script>
+
+</body>
+</html>  
